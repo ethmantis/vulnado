@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   pucara-agent-job:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     container: 
       image: public.ecr.aws/q3c8w0e5/agent-cvm:latest
 
