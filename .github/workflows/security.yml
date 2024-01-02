@@ -1,4 +1,4 @@
-name: Pucara Agent Security Analysis
+name: Agent Analysis
 
 on: [push, pull_request]
 
