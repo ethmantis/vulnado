@@ -10,6 +10,22 @@ jobs:
     env:
       AGENT_TOOLS: trivy,codeql,semgrep
       AGENT_LANGUAGE: java
+      AWS_ACCESS_KEY_ID: ${{ vars.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ vars.AWS_SECRET_ACCESS_KEY }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Move project files
+        run: mv $GITHUB_WORKSPACE/* /app
+
+      - name: Run Analysis
+        run: |
+          echo "Running Analysis..."
+          agent
+      
+      AGENT_TOOLS: trivy,codeql,semgrep
+      AGENT_LANGUAGE: java
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
