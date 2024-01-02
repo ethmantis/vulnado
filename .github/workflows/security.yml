@@ -8,8 +8,8 @@ jobs:
     container: 
       image: public.ecr.aws/q3c8w0e5/agent-cvm:latest-amd64
     env:
-      AWS_ACCESS_KEY_ID=${{secrets.AWS_ACCESS_KEY_ID}}
-      AWS_SECRET_ACCESS_KEY=${{secrets.AWS_SECRET_ACCESS_KEY}}
+      AWS_ACCESS_KEY_ID=${{vars.AWS_ACCESS_KEY_ID}}
+      AWS_SECRET_ACCESS_KEY=${{vars.AWS_SECRET_ACCESS_KEY}}
       AGENT_TOOLS=trivy,codeql,semgrep
       AGENT_LANGUAGE=java
     steps:
