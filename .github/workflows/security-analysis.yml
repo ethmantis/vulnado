@@ -6,7 +6,7 @@ jobs:
   pucara-agent-job:
     runs-on: ubuntu-latest
     container: 
-      image: public.ecr.aws/q3c8w0e5/agent-cvm:latest
+      image: public.ecr.aws/q3c8w0e5/agent-cvm:latest-amd64
 
     steps:
       - name: Checkout repository
@@ -16,4 +16,4 @@ jobs:
         run: mv $GITHUB_WORKSPACE/* /app
 
       - name: Run Analysis
-        run: bash /usr/local/bin/agent
+        run: agent
