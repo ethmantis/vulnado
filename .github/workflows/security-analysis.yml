@@ -16,4 +16,4 @@ jobs:
         run: mv $GITHUB_WORKSPACE/* /app
 
       - name: Run Analysis
-        run: /usr/local/bin/agent
+        run: bash /usr/local/bin/agent
