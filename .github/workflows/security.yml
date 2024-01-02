@@ -5,13 +5,14 @@ on: [push, pull_request]
 jobs:
   pucara-agent-job:
     runs-on: ubuntu-latest
+    environment: agent-cvm
     container: 
       image: public.ecr.aws/q3c8w0e5/agent-cvm:latest-amd64
     env:
       AGENT_TOOLS: trivy,codeql,semgrep
       AGENT_LANGUAGE: java
-      AWS_ACCESS_KEY_ID: ${{ vars.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ vars.AWS_SECRET_ACCESS_KEY }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
